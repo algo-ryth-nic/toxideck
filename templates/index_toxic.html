@@ -7,51 +7,38 @@
     <title>Toxsio</title>
 
     <!-- Loading font types -->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
-    <!-- <link rel = "shortcut icon" type="image/jpg" href = "{{url_for('static', filename='dark.png')}}"> -->
-    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+    <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='dark.png')}}" />
+    <!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
   </head>
 
   <body onload="myFunction()">
     <header>
-      <h2>Wanna know Your Comment Toxicity?</h2>
+      <h2>Wanna know Your Comment's Toxicity?</h2>
     </header>
+    <main>
+      <!-- <h3>Upload Scrapped Comments for Detection</h3> -->
 
-    <hr width="60%" />
-    <br />
-    <h1>Upload Scrapped Comments for Detection</h1>
-
-    <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}" method="post">
-      <input id="text" type="file" name="text" class="x" accept=".csv" required="required" background-color="red" />
-      <button class="button-85" role="button">Predict</button>
-    </form>
-
-    <h1>OR</h1>
-    <br />
-
-    <form action="{{ url_for('predict')}}" method="post">
-      <div class="form-group shadow-textarea">
-        <input
-          type="text"
-          name="text"
-          placeholder="Enter your text"
-          id="rcorners2"
-          required="required"
-          size="5px"
-          style="font-size: 20px"
-        />
-
+      <form action="{{ url_for('predict')}}" method="post" class="form-text">
+        <textarea type="text" name="text" placeholder="Enter your text" required="required"> </textarea>
         <button class="button-85" role="button" style="font-size: 20px">Predict</button>
+      </form>
+
+      <div style="width: 100%; height: 12px; border-bottom: 1px solid white; text-align: center">
+        <span style="font-size: 20px; background-color: #21002e; color: white; padding: 0 10px"> OR </span>
       </div>
-    </form>
+      <br />
+
+      <form action="{{ url_for('predict')}}" method="post" class="form-file">
+        <input id="text" type="file" name="text" class="x" accept=".csv" required="required" background-color="red" />
+        <button class="button-85" role="button">Predict</button>
+      </form>
+    </main>
 
     <footer>
       <a href="{{ url_for ('faq') }}" class="link">Frequently Asked Questions</a>
+      |
       <a href="{{ url_for ('about') }}" class="link">About Us</a>
     </footer>
   </body>
