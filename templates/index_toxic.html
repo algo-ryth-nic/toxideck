@@ -17,12 +17,9 @@
   </head>
 
   <body onload="myFunction()">
-    <h3 class="header">
-      <a href="{{ url_for ('faq') }}" class="link">Frequently Asked Questions</a> |
-      <a href="{{ url_for ('about') }}" class="link">About Us</a>
-    </h3>
-
-    <p>Wanna know Your Comment Toxicity?</p>
+    <header>
+      <h2>Wanna know Your Comment Toxicity?</h2>
+    </header>
 
     <hr width="60%" />
     <br />
@@ -52,5 +49,10 @@
         <button class="button-85" role="button" style="font-size: 20px">Predict</button>
       </div>
     </form>
+
+    <footer>
+      <a href="{{ url_for ('faq') }}" class="link">Frequently Asked Questions</a>
+      <a href="{{ url_for ('about') }}" class="link">About Us</a>
+    </footer>
   </body>
 </html>

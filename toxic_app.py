@@ -1,6 +1,5 @@
 
 from flask import Flask, render_template, url_for, request, jsonify      
-# from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer 
 import pickle
 import numpy as np
 
@@ -95,9 +94,7 @@ def predict():
                             pred_thr = 'Prob (Threat): {}'.format(out_thr),
                             pred_ide = 'Prob (Identity Hate): {}'.format(out_ide)                        
                             )
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
+
 @app.route('/result/')
 def result():
     return render_template('result.html')
@@ -108,6 +105,6 @@ def faq():
 def about():
     return render_template('about.html')
 if __name__=="__main__":
-# Server reloads itself if code changes so no need to keep restarting:
+    # Server reloads itself if code changes so no need to keep restarting:
     app.run(debug=True)
 
